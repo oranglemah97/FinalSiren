@@ -27,7 +27,7 @@ build = { command = "cargo install -q worker-build && worker-build --dev" }
 
 [vars]
 UUID = "fccdaaae-af39-41a7-9fde-fd32a48278cf"
-MAIN_PAGE_URL = "https://raw.githubusercontent.com/AFRcloud/FinalSiren/refs/heads/master/web/index.html"
-SUB_PAGE_URL = "https://raw.githubusercontent.com/AFRcloud/FinalSiren/refs/heads/master/web/sub.html"
-LINK_PAGE_URL = "https://raw.githubusercontent.com/AFRcloud/FinalSiren/refs/heads/master/web/link.html"
-CONVERTER_PAGE_URL = "https://raw.githubusercontent.com/AFRcloud/FinalSiren/refs/heads/master/web/converter.html"
+MAIN_PAGE_URL = "https://raw.githubusercontent.com/kurtulx/FinalSiren/refs/heads/master/web/index.html"
+SUB_PAGE_URL = "https://raw.githubusercontent.com/kurtulx/FinalSiren/refs/heads/master/web/sub.html"
+LINK_PAGE_URL = "https://raw.githubusercontent.com/kurtulx/FinalSiren/refs/heads/master/web/link.html"
+CONVERTER_PAGE_URL = "https://raw.githubusercontent.com/kurtulx/FinalSiren/refs/heads/master/web/converter.html"
