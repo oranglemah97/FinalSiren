@@ -13,7 +13,7 @@ const defaultProxyUrl = "https://raw.githubusercontent.com/AFRcloud/ProxyList/re
 
 const serverDomains = ["skibidicx.web.id"]
 let selectedServerDomain = serverDomains[0] // Default to first domain
-const defaultUUID = "bbbbbbbb-cccc-4ddd-eeee-ffffffffffff"
+const defaultUUID = "fccdaaae-af39-41a7-9fde-fd32a48278cf"
 const itemsPerPage = 10
 let currentPage = 1
 
