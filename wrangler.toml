@@ -1,30 +1,41 @@
+# wrangler.toml — FINAL
+
 name = "nel"
-main = "build/worker/shim.mjs"
+account_id = "5de0bde21e776ff85f7bb5c7832f2d4d"        # <-- optional; boleh dihapus jika login OK
+main = "build/worker/shim.mjs"               # output dari worker-build (Rust) :contentReference[oaicite:1]{index=1}
 compatibility_date = "2024-05-23"
 minify = true
+
+# Default dev pakai workers.dev (tanpa routes)
 workers_dev = true
 
+# ===== KV bindings (shared di semua env) =====
+[[kv_namespaces]]
+binding = "SIREN"
+id = "8ab7f91a5e3045bdadf15394144df6ef"     # ID dari dashboard/Wrangler :contentReference[oaicite:2]{index=2}
 
+# ===== Rust custom build (wajib ada Cargo di CI) =====
+[build]
+command = "cargo install -q worker-build && worker-build --release"  # generate build/worker/shim.mjs :contentReference[oaicite:3]{index=3}
+
+# ===== DEV ENV (untuk testing di *.workers.dev) =====
+[env.dev]
+workers_dev = true
+build = { command = "cargo install -q worker-build && worker-build --dev" }
+
+# ===== PRODUCTION ENV (semua custom domain/rute taruh di sini) =====
+[env.production]
 routes = [
-
   { pattern = "nel.nailamazy.biz.id", custom_domain = true },
   { pattern = "support.zoom.us.nel.nailamazy.biz.id", custom_domain = true },
   { pattern = "ava.game.naver.com.nel.nailamazy.biz.id", custom_domain = true },
   { pattern = "graph.instagram.com.nel.nailamazy.biz.id", custom_domain = true },
   { pattern = "df.game.naver.com.nel.nailamazy.biz.id", custom_domain = true },
   { pattern = "zoomgov.com.nel.nailamazy.biz.id", custom_domain = true }
-  ]
+]
+# Tips: pastikan DNS record utk setiap host ada sebelum route aktif. :contentReference[oaicite:4]{index=4}
 
-[[kv_namespaces]]
-binding = "SIREN"
-id = "8ab7f91a5e3045bdadf15394144df6ef"
-
-[build]
-command = "cargo install -q worker-build && worker-build --release"
-
-[env.dev]
-build = { command = "cargo install -q worker-build && worker-build --dev" }
-
+# ===== Vars (bukan secrets) =====
 [vars]
 UUID = "fccdaaae-af39-41a7-9fde-fd32a48278cf"
 MAIN_PAGE_URL = "https://raw.githubusercontent.com/kurtulx/FinalSiren/refs/heads/master/web/index.html"
