@@ -1,29 +1,27 @@
-# wrangler.toml — FINAL
-
 name = "nel"
-account_id = "5de0bde21e776ff85f7bb5c7832f2d4d"        # <-- optional; boleh dihapus jika login OK
-main = "build/worker/shim.mjs"               # output dari worker-build (Rust) :contentReference[oaicite:1]{index=1}
+account_id = "5de0bde21e776ff85f7bb5c7832f2d4d"
+main = "build/worker/shim.mjs"
 compatibility_date = "2024-05-23"
 minify = true
 
-# Default dev pakai workers.dev (tanpa routes)
+# Dev default ke *.workers.dev (tanpa routes)
 workers_dev = true
 
-# ===== KV bindings (shared di semua env) =====
+# ===== KV bindings (berlaku untuk semua env) =====
 [[kv_namespaces]]
 binding = "SIREN"
-id = "8ab7f91a5e3045bdadf15394144df6ef"     # ID dari dashboard/Wrangler :contentReference[oaicite:2]{index=2}
+id = "8ab7f91a5e3045bdadf15394144df6ef"
 
-# ===== Rust custom build (wajib ada Cargo di CI) =====
+# ===== Rust custom build (butuh Cargo di CI/runner) =====
 [build]
-command = "cargo install -q worker-build && worker-build --release"  # generate build/worker/shim.mjs :contentReference[oaicite:3]{index=3}
+command = "cargo install -q worker-build && worker-build --release"
 
-# ===== DEV ENV (untuk testing di *.workers.dev) =====
+# ===== DEV (untuk testing di workers.dev) =====
 [env.dev]
 workers_dev = true
 build = { command = "cargo install -q worker-build && worker-build --dev" }
 
-# ===== PRODUCTION ENV (semua custom domain/rute taruh di sini) =====
+# ===== PRODUCTION (aktifkan semua custom domain di sini) =====
 [env.production]
 routes = [
   { pattern = "nel.nailamazy.biz.id", custom_domain = true },
@@ -33,9 +31,8 @@ routes = [
   { pattern = "df.game.naver.com.nel.nailamazy.biz.id", custom_domain = true },
   { pattern = "zoomgov.com.nel.nailamazy.biz.id", custom_domain = true }
 ]
-# Tips: pastikan DNS record utk setiap host ada sebelum route aktif. :contentReference[oaicite:4]{index=4}
 
-# ===== Vars (bukan secrets) =====
+# ===== Vars (jangan taruh secrets di sini) =====
 [vars]
 UUID = "ef4a3cab-3556-4819-be23-51f2b40b6d78"
 MAIN_PAGE_URL = "https://raw.githubusercontent.com/kurtulx/FinalSiren/refs/heads/master/web/index.html"
