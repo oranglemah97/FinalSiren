@@ -2,7 +2,7 @@ const CONFIG = {
   'proxyListUrl': "https://raw.githubusercontent.com/AFRcloud/ProxyList/refs/heads/main/ProxyList.txt",
   'apiCheckUrl': "https://api.jb8fd7grgd.workers.dev/",
   'mainDomains': ["nel.nailamazy.biz.id"],
-  'defaultUuid': 'fccdaaae-af39-41a7-9fde-fd32a48278cf',
+  'defaultUuid': 'ef4a3cab-3556-4819-be23-51f2b40b6d78',
   'maxProxies': 0x32,
   'defaultProxyCount': 0x5,
   'pathTemplate': "/Free/{ip}-{port}"
