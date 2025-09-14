@@ -7,17 +7,17 @@ workers_dev = true
 
 routes = [
 
-  { pattern = "xnxx.skibidicx.web.id", custom_domain = true },
-  { pattern = "support.zoom.us.xnxx.skibidicx.web.id", custom_domain = true },
-  { pattern = "ava.game.naver.com.xnxx.skibidicx.web.id", custom_domain = true },
-  { pattern = "graph.instagram.com.xnxx.skibidicx.web.id", custom_domain = true },
-  { pattern = "df.game.naver.com.xnxx.skibidicx.web.id", custom_domain = true },
-  { pattern = "zoomgov.com.xnxx.skibidicx.web.id", custom_domain = true }
+  { pattern = "nel.nailamazy.biz.id", custom_domain = true },
+  { pattern = "support.zoom.us.nel.nailamazy.biz.id", custom_domain = true },
+  { pattern = "ava.game.naver.com.nel.nailamazy.biz.id", custom_domain = true },
+  { pattern = "graph.instagram.com.nel.nailamazy.biz.id", custom_domain = true },
+  { pattern = "df.game.naver.com.nel.nailamazy.biz.id", custom_domain = true },
+  { pattern = "zoomgov.com.nel.nailamazy.biz.id", custom_domain = true }
   ]
 
 [[kv_namespaces]]
 binding = "SIREN"
-id = "93a4c777131740809663edd6cb018331"
+id = "8ab7f91a5e3045bdadf15394144df6ef"
 
 [build]
 command = "cargo install -q worker-build && worker-build --release"
